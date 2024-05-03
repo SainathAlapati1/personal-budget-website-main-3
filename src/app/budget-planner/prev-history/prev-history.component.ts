@@ -50,7 +50,7 @@ export class PrevHistoryComponent {
   ngOnInit(): void {
     this.userId = this.authService.getLoggedInUserId();
     if (this.userId === undefined) {
-      this.router.navigate(['/budget/login']);
+      this.router.navigate(['/login']);
     }
     // Fetch budget history
     // this.http.get('/api/budgets').subscribe((data: Object) => {

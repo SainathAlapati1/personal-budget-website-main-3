@@ -127,9 +127,7 @@ import { Router } from '@angular/router';
 import { EarningsComponent } from './earnings/earnings.component';
 import { ExpenditureComponent } from './expenditure/expenditure.component';
 import { DataService } from '../../data.service';
-import { Earnings } from './earnings/Earnings';
-import { timestamp } from 'rxjs';
-import { error } from 'console';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AuthenticationService } from '../authentication.service';
 import { AllocatedBudgetComponent } from './allocated-budget/allocated-budget.component';
 
@@ -143,7 +141,8 @@ export class DashboardComponent {
     public router: Router,
     public dialog: MatDialog,
     private dataService: DataService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private dialogModule: MatDialogModule
   ) {}
   //Earnings
   //lastMonthsEarnings = ['January: $1000', 'February: $1500', 'March: $1200'];
@@ -194,7 +193,7 @@ export class DashboardComponent {
   totalCurrentMonthExpenditure = 0;
   totalCurrentMonthBudget = 0;
   ngOnInit() {
-   this.loggedInUser = this.authService.getLoggedInUserId();
+    this.loggedInUser = this.authService.getLoggedInUserId();
     if (this.loggedInUser === undefined) {
       this.router.navigate(['/login']);
     } else {
@@ -284,9 +283,11 @@ export class DashboardComponent {
   getCurrentMonthExpenditureData() {
     this.dataService.getCurrentMonthExpenditure(this.loggedInUser).subscribe(
       (expenditure) => {
-        console.log('From dashboard.ts current month expenditure: ' + expenditure[0].total_expenditure);
-        this.totalCurrentMonthExpenditure =
-          expenditure[0].total_expenditure;
+        console.log(
+          'From dashboard.ts current month expenditure: ' +
+            expenditure[0].total_expenditure
+        );
+        this.totalCurrentMonthExpenditure = expenditure[0].total_expenditure;
         this.currentMonthExpenditure = '$' + this.totalCurrentMonthExpenditure;
       },
       (error) => {
@@ -297,8 +298,11 @@ export class DashboardComponent {
   getCurrentMonthAllocatedBudgetData() {
     this.dataService
       .getCurrentMonthAllocatedBudget(this.loggedInUser)
-      .subscribe((budget) => {
-          console.log('From dashboard.ts current month budget: ' + budget[0].total_expense);
+      .subscribe(
+        (budget) => {
+          console.log(
+            'From dashboard.ts current month budget: ' + budget[0].total_expense
+          );
           this.totalCurrentMonthBudget = budget[0].total_expense;
           this.currentMonthAllocatedBudget = '$' + this.totalCurrentMonthBudget;
         },
@@ -365,10 +369,6 @@ export class DashboardComponent {
     });
     // this.router.navigate(['/budget-planner/expenditure']);
   }
-  onTodo() {
-    this.router.navigate(['/allocatedbudget-planner/todo']);
-  }
-
   //Calculate Total
   get currentMonthSavings(): number {
     return this.totalCurrentMonthEarnings - this.totalCurrentMonthExpenditure;

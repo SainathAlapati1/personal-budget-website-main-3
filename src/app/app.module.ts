@@ -14,6 +14,7 @@ import { LoginModule } from './budget-planner/login/login.module';
 import { RouterModule } from '@angular/router';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { ConfigBudgetComponent } from './config-budget/config-budget.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, ConfigBudgetComponent],
@@ -21,6 +22,7 @@ import { ConfigBudgetComponent } from './config-budget/config-budget.component';
     BrowserModule,
     AppRoutingModule,
     LoginModule,
+    MatDialogModule,
     AngularFireModule.initializeApp({
       apiKey: 'AIzaSyBxcKh0ESa2prKJ4j-xhKxmwo5XTe2Hizw',
       authDomain: 'personal-budget-application.firebaseapp.com',
@@ -33,7 +35,15 @@ import { ConfigBudgetComponent } from './config-budget/config-budget.component';
     AngularFireAuthModule,
     RouterModule,
   ],
-  providers: [provideClientHydration(), provideAnimationsAsync(),provideMomentDateAdapter(undefined, {useUtc: true})],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    {
+      provide: MatDialogModule,
+      useValue: {},
+    },
+    provideMomentDateAdapter(undefined, { useUtc: true }),
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
