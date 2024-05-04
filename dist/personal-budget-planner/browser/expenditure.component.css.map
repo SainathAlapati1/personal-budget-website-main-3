@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/budget-planner/dashboard/expenditure/expenditure.component.scss"],
+  "sourcesContent": [".example-full-width {\n    width: 100%;\n  }"],
+  "mappings": ";AAAA,CAAA;AACI,SAAA;;",
+  "names": []
+}

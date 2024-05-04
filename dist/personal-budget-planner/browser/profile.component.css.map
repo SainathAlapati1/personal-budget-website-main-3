@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/budget-planner/profile/profile.component.scss"],
+  "sourcesContent": [".profile-container {\n  display: flex;\n  align-items: center;\n  padding: 20px;\n  background-color: #f9f9f9;\n  border-radius: 10px;\n}\n.body {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  background-color: #207e98;\n}\n.profile-image img {\n  width: 100px;\n  height: 100px;\n  border-radius: 50%;\n  margin-right: 20px;\n}\n\n.profile-details {\n  flex: 1;\n}\n\n.theme-toggle {\n  margin-top: 10px;\n\n  label {\n    font-weight: bold;\n  }\n\n  select {\n    padding: 5px;\n    border: 1px solid #ccc;\n    border-radius: 5px;\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,eAAA;AACA,WAAA;AACA,oBAAA;AACA,iBAAA;;AAEF,CAAA;AACE,WAAA;AACA,mBAAA;AACA,eAAA;AACA,cAAA;AACA,oBAAA;;AAEF,CAAA,cAAA;AACE,SAAA;AACA,UAAA;AACA,iBAAA;AACA,gBAAA;;AAGF,CAAA;AACE,QAAA;;AAGF,CAAA;AACE,cAAA;;AAEA,CAHF,aAGE;AACE,eAAA;;AAGF,CAPF,aAOE;AACE,WAAA;AACA,UAAA,IAAA,MAAA;AACA,iBAAA;;",
+  "names": []
+}

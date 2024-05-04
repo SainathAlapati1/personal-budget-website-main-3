@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/budget-planner/prev-history/prev-history.component.scss"],
+  "sourcesContent": [".container {\n  display: flex;\n  justify-content: space-between;\n}\n\n.table-container {\n  flex: 1;\n  padding: 20px;\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-right: 20px;\n}\n\n.budget-table,\n.income-table,\n.add-budget-table {\n  width: 100%;\n  border-collapse: collapse;\n}\n\n.budget-table th,\n.budget-table td,\n.income-table th,\n.income-table td,\n.add-budget-table th,\n.add-budget-table td {\n  padding: 10px;\n  text-align: left;\n}\n\n.budget-table th,\n.income-table th,\n.add-budget-table th {\n  background-color: #f5f5f5;\n}\n\n.budget-table tr:nth-child(even),\n.income-table tr:nth-child(even),\n.add-budget-table tr:nth-child(even) {\n  background-color: #f9f9f9;\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,mBAAA;;AAGF,CAAA;AACE,QAAA;AACA,WAAA;AACA,UAAA,IAAA,MAAA;AACA,iBAAA;AACA,gBAAA;;AAGF,CAAA;AAAA,CAAA;AAAA,CAAA;AAGE,SAAA;AACA,mBAAA;;AAGF,CAPA,aAOA;AAAA,CAPA,aAOA;AAAA,CAPA,aAOA;AAAA,CAPA,aAOA;AAAA,CAPA,iBAOA;AAAA,CAPA,iBAOA;AAME,WAAA;AACA,cAAA;;AAGF,CAjBA,aAiBA;AAAA,CAjBA,aAiBA;AAAA,CAjBA,iBAiBA;AAGE,oBAAA;;AAGF,CAvBA,aAuBA,EAAA;AAAA,CAvBA,aAuBA,EAAA;AAAA,CAvBA,iBAuBA,EAAA;AAGE,oBAAA;;",
+  "names": []
+}

@@ -1,0 +1,12 @@
+{
+  "routes": [
+    "/",
+    "/dashboard",
+    "/login",
+    "/logout-popup",
+    "/prev-history",
+    "/profile",
+    "/side-nav",
+    "/sign-up"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/budget-planner/dashboard/logout-popup/logout-popup.component.scss"],
+  "sourcesContent": [".popup-container {\n  background-color: #ffffff;\n  padding: 20px;\n  border-radius: 10px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  text-align: center;\n\n  h3 {\n    font-size: 1.2rem;\n    margin-bottom: 10px;\n  }\n\n  p {\n    color: #777777;\n    margin-bottom: 20px;\n  }\n\n  .button-row {\n    display: flex;\n    justify-content: center;\n\n    button {\n      margin: 0 10px;\n      padding: 5px 10px;\n      border: none;\n      border-radius: 5px;\n      cursor: pointer;\n    }\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,oBAAA;AACA,WAAA;AACA,iBAAA;AACA,cAAA,EAAA,IAAA,IAAA,KAAA,CAAA,EAAA,CAAA,EAAA,CAAA,EAAA;AACA,cAAA;;AAEA,CAPF,gBAOE;AACE,aAAA;AACA,iBAAA;;AAGF,CAZF,gBAYE;AACE,SAAA;AACA,iBAAA;;AAGF,CAjBF,gBAiBE,CAAA;AACE,WAAA;AACA,mBAAA;;AAEA,CArBJ,gBAqBI,CAJF,WAIE;AACE,UAAA,EAAA;AACA,WAAA,IAAA;AACA,UAAA;AACA,iBAAA;AACA,UAAA;;",
+  "names": []
+}

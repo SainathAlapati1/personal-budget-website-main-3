@@ -11,7 +11,6 @@
 import { Observable, from } from 'rxjs';
 import { Injectable } from '@angular/core';
 import axios, { AxiosResponse } from 'axios';
-import { error } from 'console';
 import { AllocatedBudget } from './config-budget/AllocatedBudget';
 import { Earnings } from './budget-planner/dashboard/earnings/Earnings';
 import { Expenditure } from './budget-planner/dashboard/expenditure/Expenditure';
