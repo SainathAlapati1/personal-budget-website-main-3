@@ -59,10 +59,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "personal-budget-planner:build:production"
+              "buildTarget": "personal-budget-planner:build:production",
+              "proxyConfig": "src/proxy.conf.json"
             },
             "development": {
-              "buildTarget": "personal-budget-planner:build:development"
+              "buildTarget": "personal-budget-planner:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "production"

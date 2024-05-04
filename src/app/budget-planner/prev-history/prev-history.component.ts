@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Expenditure } from '../dashboard/expenditure/Expenditure';
 import { AllocatedBudget } from '../../config-budget/AllocatedBudget';
 import { DataService } from '../../data.service';
@@ -12,23 +11,6 @@ import { Router } from '@angular/router';
   styleUrl: './prev-history.component.scss',
 })
 export class PrevHistoryComponent {
-  // allocatedBudgets: any[] = []; // Initialize with an empty array
-  // incomes: any[] = []; // Initialize with an empty array
-  // // addAllocatedBudgets: string[] = [
-  // //   'Pharmacy',
-  // //   'Transportation',
-  // //   'Grocery',
-  // //   'Utility',
-  // //   'Rent',
-  // //   'Misc',
-  // // ];
-  // allocatedBudgetFilter: string = 'last-month'; // Default value for allocatedbudget filter
-  // incomeFilter: string = 'last-month'; // Default value for income filter
-  // addAllocatedBudgetFilter: string = 'last-month';
-  // constructor() {}
-  // // private http: HttpClient;
-  // ngOnInit(): void {
-  // }
   budgets: any[] = []; // Initialize with an empty array
   earnings: any[] = []; // Initialize with an empty array
 
