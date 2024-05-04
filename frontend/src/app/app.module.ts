@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import { ConfigBudgetComponent } from './config-budget/config-budget.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, ConfigBudgetComponent],
@@ -42,6 +43,7 @@ import { MatDialogModule } from '@angular/material/dialog';
       provide: MatDialogModule,
       useValue: {},
     },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     provideMomentDateAdapter(undefined, { useUtc: true }),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
