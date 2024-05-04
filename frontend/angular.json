@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "baseHref": "app/",
+            "baseHref": "frontend/",
             "outputPath": "dist/personal-budget-planner",
             "index": "src/index.html",
             "browser": "src/main.ts",
