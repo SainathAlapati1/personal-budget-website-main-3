@@ -1,126 +1,3 @@
-// import { Component } from '@angular/core';
-// import { MatDialog } from '@angular/material/dialog';
-// import { Router } from '@angular/router';
-// import { AddEarningsComponent } from './add-earnings/add-earnings.component';
-// import { AddExpenditureComponent } from './add-expenditure/add-expenditure.component';
-// import { DataService } from '../../data.service';
-// import { Earnings } from './add-earnings/Earnings';
-
-// @Component({
-//   selector: 'app-dashboard',
-//   templateUrl: './dashboard.component.html',
-//   styleUrl: './dashboard.component.scss',
-// })
-// export class DashboardComponent {EarningsComponent);
-//   constructor(
-//     public router: Router,
-//     public dialog: MatDialog,
-//     private dataService: DataService
-//   ) {}
-//   //Earnings
-//   lastMonthsEarnings = ['January: $1000', 'February: $1500', 'March: $1200'];
-//   lastMonthEarnings: string[] = [];
-//   currentMonthEarnings = '$2000';
-
-//   //Expenditure
-//   lastMonthsExpenditure = ['January: $800', 'February: $1000', 'March: $1200'];
-//   lastMonthExpenditure: string[] = [];
-//   currentMonthExpenditure = '$1500';
-
-//   //AllocatedBudget
-//   expenditures = [
-//     'Pharmasy: $80',
-//     'Transportation: $100',
-//     'Grocery: $120',
-//     'Utility: $50',
-//     'Rent: $100',
-//     'Misc: $50',
-//   ];
-
-//   // //Todo Trans
-//   // todoTransactions = [
-//   //   { description: 'Pay electricity bill' },
-//   //   { description: 'Submit monthly report' },
-//   //   { description: 'Buy groceries' },
-//   //   { description: 'Call insurance company' },
-//   // ];
-
-//   //Total
-//   totalCurrentMonthEarnings = 2000;
-//   totalCurrentMonthExpenditure = 1500;
-
-//   ngOnInit() {
-//     this.getEarningsData();
-//     this.getExpenditureData();
-//   }
-
-//   ngOnChange() {
-//     this.getEarningsData();
-//     this.getExpenditureData();
-//   }
-//   getEarningsData() {
-//     this.dataService.getEarningsForThreeMonth().subscribe(
-//       (earnings) => {
-//         console.log('From dashboard.ts Earnings is : ' + earnings);
-//         for (let index = 0; index < earnings.length; index++) {
-//           const element = earnings[index];
-//           const concatMonExp =
-//             earnings[index].month + ': $' + earnings[index].amount;
-//           console.log('concatMonExp: ' + concatMonExp);
-//           this.lastMonthEarnings.push(concatMonExp);
-//           console.log('last month earnings: ' + this.lastMonthEarnings);
-//         }
-//       },
-//       (error) => {
-//         console.log('error : ' + error);
-//       }
-//     );
-//   }
-
-//   getExpenditureData() {
-//     this.dataService.getAllocatedBudgetData().subscribe(
-//       (earnings) => {
-//         console.log('From dashboard.ts Earnings is : ' + earnings);
-//         for (let index = 0; index < earnings.length; index++) {
-//           const element = earnings[index];
-//           const concatMonExp =
-//             earnings[index].monthAndYear + ': $' + earnings[index].amount;
-//           console.log('concatMonExp: ' + concatMonExp);
-//           this.lastMonthExpenditure.push(concatMonExp);
-//           console.log('last month earnings: ' + this.lastMonthEarnings);
-//         }
-//       },
-//       (error) => {
-//         console.log('error : ' + error);
-//       }
-//     );
-//   }
-//   onEarnings() {
-//     // this.router.navigate(['/allocatedbudget-planner/earnings']);
-//     const dialogRef = this.dialog.open(AddEarningsComponent, {
-//       data: {},
-//     });
-
-//     dialogRef.afterClosed().subscribe((result) => {});
-//   }
-//   onExpenditure() {
-//     const dialogRef = this.dialog.open(AddExpenditureComponent, {
-//       data: {},
-//     });
-
-//     dialogRef.afterClosed().subscribe((result) => {});
-//     // this.router.navigate(['/allocatedbudget-planner/expenditure']);
-//   }
-//   onTodo() {
-//     this.router.navigate(['/allocatedbudget-planner/todo']);
-//   }
-
-//   //Calculate Total
-//   get currentMonthSavings(): number {
-//     return this.totalCurrentMonthEarnings - this.totalCurrentMonthExpenditure;
-//   }
-// }
-
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -144,8 +21,6 @@ export class DashboardComponent {
     private authService: AuthenticationService,
     private dialogModule: MatDialogModule
   ) {}
-  //Earnings
-  //lastMonthsEarnings = ['January: $1000', 'February: $1500', 'March: $1200'];
   lastMonthsEarnings: string[] = [];
   currentMonthEarnings = '';
 
@@ -171,23 +46,6 @@ export class DashboardComponent {
     'November',
     'December',
   ];
-  // expenditures = [
-  //   'Pharmasy: $80',
-  //   'Transportation: $100',
-  //   'Grocery: $120',
-  //   'Utility: $50',
-  //   'Rent: $100',
-  //   'Misc: $50',
-  // ];
-
-  //Todo Trans
-  todoTransactions = [
-    { description: 'Pay electricity bill' },
-    { description: 'Submit monthly report' },
-    { description: 'Buy groceries' },
-    { description: 'Call insurance company' },
-  ];
-
   //Total
   totalCurrentMonthEarnings = 0;
   totalCurrentMonthExpenditure = 0;

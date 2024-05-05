@@ -1,55 +1,3 @@
-// import { Injectable } from '@angular/core';
-// import { AngularFireAuth } from '@angular/fire/compat/auth';
-// import { error } from 'console';
-// import { response } from 'express';
-// import { Observable, catchError, from, of } from 'rxjs';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class AuthenticationService {
-//   constructor(private afireAuth: AngularFireAuth) {}
-//   signIn(params: SignIn): Observable<any> {
-//     return from(
-//       this.afireAuth
-//         .signInWithEmailAndPassword(params.email, params.password)
-//         .catch((error) => {
-//           console.log('Error: ' + error.message);
-//         })
-//     );
-//   }
-
-//   recoverPassword(email: string): Observable<any> {
-//     console.log('return: ' + this.afireAuth.sendPasswordResetEmail(email));
-//     return from(
-//       this.afireAuth
-//         .sendPasswordResetEmail(email)
-//         .then(() => {
-//           console.log('Reset mail sent successfully');
-//         })
-//         .catch((error) => {
-//           if (error.code === 'auth/user-not-found') {
-//             console.error('User not found for email:', email);
-//           } else {
-//             console.error('Error sending password reset email:', error);
-//           }
-//         })
-//     );
-//   }
-
-//   register(params: SignIn): Observable<any> {
-//     const promise = this.afireAuth
-//       .createUserWithEmailAndPassword(params.email, params.password)
-//       .then((response) => console.log('response : ' + response));
-//     return from(promise);
-//   }
-// }
-
-// type SignIn = {
-//   email: string;
-//   password: string;
-// };
-
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { catchError, from, Observable } from 'rxjs';
@@ -62,12 +10,12 @@ export class AuthenticationService {
   loggedInUser!: string;
   setloggedInUserId(userId: string) {
     //this.firebaseUserIdSubject.next(userId);
-    console.log("auth service set User id: "+ userId);
+    console.log('auth service set User id: ' + userId);
     this.loggedInUser = userId;
   }
 
   getLoggedInUserId() {
-   return this.loggedInUser;
+    return this.loggedInUser;
   }
 
   signIn(params: SignIn): Observable<any> {

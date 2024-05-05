@@ -18,7 +18,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { PrevHistoryComponent } from './prev-history/prev-history.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LogoutPopupComponent } from './dashboard/logout-popup/logout-popup.component';
+import { LogoutComponent } from './logout/logout.component';
 import { AllocatedBudgetComponent } from './dashboard/allocated-budget/allocated-budget.component';
 import { BrushChartComponent } from './dashboard/Charts/brush-chart/brush-chart.component';
 
@@ -33,7 +33,7 @@ import { BrushChartComponent } from './dashboard/Charts/brush-chart/brush-chart.
     PrevHistoryComponent,
     SignupComponent,
     ProfileComponent,
-    LogoutPopupComponent,
+    LogoutComponent,
     AllocatedBudgetComponent,
     BrushChartComponent,
   ],

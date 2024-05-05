@@ -13,10 +13,12 @@
           <input type="password" placeholder="Password" />
         </div>
         <div class="inputBx">
-          <input type="submit" value="Sign Up" />
+          <input type="submit" value="Sign Up" (click)="signUp()" />
         </div>
         <div class="group">
-          <a href="#">Already have an account? Login</a>
+          <a href="#" (click)="navigateToLogin()"
+            >Already have an account? Login</a
+          >
         </div>
       </form>
     </div>

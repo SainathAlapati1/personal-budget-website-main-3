@@ -24,6 +24,6 @@ export class SideNavComponent {
     this.router.navigate(['/prev-history']);
   }
   onLogout() {
-    this.router.navigate(['/logout-popup']);
+    this.router.navigate(['/logout']);
   }
 }

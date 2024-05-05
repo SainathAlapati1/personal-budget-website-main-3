@@ -306,6 +306,14 @@ export class DataService {
     );
   }
 
+  getCurrentMonthAmountByExpenditure(userId: string): Observable<any[]> {
+    return from(
+      axios
+        .get<any[]>(`${this.requestUrl}/category/total/${userId}`)
+        .then((resp) => resp.data)
+        .catch((error) => error)
+    );
+  }
   deleteExpenditureItem(userId: string, itemName: any): Observable<null> {
     return from(
       axios
