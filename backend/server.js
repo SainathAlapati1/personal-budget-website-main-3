@@ -23,15 +23,6 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", express.static("public"));
 
-// connection.connect((err) => {
-//   if (err) {
-//       console.error('Error connecting to MySQL:', err);
-//       return;
-//   }
-//   console.log('MySQL connected');
-// });
-
-// Endpoint to get all expenditure items
 app.get("/expenditure/items/:userId", async (req, res) => {
   const { userId } = req.params;
   connection.query(

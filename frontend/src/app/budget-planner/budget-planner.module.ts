@@ -21,6 +21,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AllocatedBudgetComponent } from './dashboard/allocated-budget/allocated-budget.component';
 import { BrushChartComponent } from './dashboard/Charts/brush-chart/brush-chart.component';
+import { InactivitydialogComponent } from './inactivitydialog/inactivitydialog.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -36,8 +40,13 @@ import { BrushChartComponent } from './dashboard/Charts/brush-chart/brush-chart.
     LogoutComponent,
     AllocatedBudgetComponent,
     BrushChartComponent,
+    InactivitydialogComponent,
   ],
   imports: [
+    MatListModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule,
     CommonModule,
     BudgetPlannerRoutingModule,
     MatButtonModule,

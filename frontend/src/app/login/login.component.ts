@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import firebase from 'firebase/compat/app';
+import { MatDialog } from '@angular/material/dialog'; // Import MatDialog
+import { AuthenticationService } from '../budget-planner/authentication.service';
+import { InactivitydialogComponent } from '../budget-planner/inactivitydialog/inactivitydialog.component';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +18,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +50,7 @@ export class LoginComponent implements OnInit {
           this.startInactivityTimer();
 
           // Navigate to dashboard on successful login
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/home']);
         },
         error: (error) => {
           console.error(error);
@@ -73,15 +76,32 @@ export class LoginComponent implements OnInit {
   }
   startInactivityTimer() {
     // Set the inactivity limit to 50 seconds
-    const inactivityLimit = 50 * 1000;
+    const inactivityLimit = 1000 * 1000;
 
-    let timerId = setTimeout(() => this.logout(), inactivityLimit);
+    let timerId = setTimeout(
+      () => this.showInactivityDialog(),
+      inactivityLimit
+    );
 
     // Reset the timer whenever there's any activity
     window.onmousemove = window.onkeypress = () => {
       clearTimeout(timerId);
-      timerId = setTimeout(() => this.logout(), inactivityLimit);
+      timerId = setTimeout(() => this.showInactivityDialog(), inactivityLimit);
     };
+  }
+
+  showInactivityDialog() {
+    const dialogRef = this.dialog.open(InactivitydialogComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'refresh') {
+        this.startInactivityTimer();
+      } else {
+        this.logout();
+      }
+    });
   }
 
   logout() {

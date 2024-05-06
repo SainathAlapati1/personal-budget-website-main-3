@@ -41,6 +41,11 @@ export class PieChartComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.userId = this.authService.getLoggedInUserId();
     this.fetchData();
+    this.dataService.currentMessage$.subscribe((value) => {
+      if (value) {
+        this.fetchData();
+      }
+    });
   }
 
   fetchData(): void {
@@ -51,6 +56,7 @@ export class PieChartComponent implements OnInit, AfterViewInit {
     // Fetch amount by expenditure category
     this.dataService.getCurrentMonthAmountByExpenditure(this.userId).subscribe(
       (expenditure) => {
+        this.data = [];
         for (let index = 0; index < expenditure.length; index++) {
           const expenditureType = expenditure[index].expenditureType;
           const amount = expenditure[index].total_amount;
@@ -73,25 +79,6 @@ export class PieChartComponent implements OnInit, AfterViewInit {
           category: 'Earning',
           value: this.totalCurrentMonthEarning,
         });
-
-        // Fetch expenditure data
-        //   this.dataService.getCurrentMonthExpenditure(this.userId).subscribe(
-        //     budget => {
-        //       this.totalCurrentMonthExpenditure = budget[0].total_expenditure;
-        //       this.data.push({ "category": "Expenditure", "value": this.totalCurrentMonthExpenditure });
-
-        //       // After both earning and expenditure data fetched, draw pie chart
-        //       this.createSvg();
-        //       this.drawPie();
-        //     },
-        //     error => {
-        //       console.error("Error fetching expenditure data:", error);
-        //     }
-        //   );
-        // },
-        // error => {
-        //   console.error("Error fetching earning data:", error);
-        // }
       });
   }
 
@@ -122,8 +109,6 @@ export class PieChartComponent implements OnInit, AfterViewInit {
     const expenditureTypes = [...new Set(this.data.map((d) => d.category))];
     // Generate the arcs
     const arc = d3.arc().innerRadius(0).outerRadius(this.radius);
-
-    // Generate arcs for each data point
     const arcs = this.svg
       .selectAll('arc')
       .data(pie(this.data))
@@ -140,13 +125,6 @@ export class PieChartComponent implements OnInit, AfterViewInit {
       .append('path')
       .attr('d', arc)
       .attr('fill', (d: any) => colorScale(d.data.category));
-
-    // Draw each arc
-    // arcs.append("path")
-    //   .attr("d", arc)
-    //   .attr("fill", (d: any) => d.data.category === "Earning" ? "#3182bd" : "#d04a35");
-
-    // Add labels to the arcs
     arcs
       .append('text')
       .attr('transform', (d: any) => 'translate(' + arc.centroid(d) + ')')

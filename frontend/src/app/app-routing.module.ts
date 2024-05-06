@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PrevHistoryComponent } from './budget-planner/prev-history/prev-history.component';
-import { LoginComponent } from './budget-planner/login/login.component';
 import { SignupComponent } from './budget-planner/signup/signup.component';
 import { ProfileComponent } from './budget-planner/profile/profile.component';
 import { DashboardComponent } from './budget-planner/dashboard/dashboard.component';
+import { SideNavComponent } from './budget-planner/side-nav/side-nav.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -29,6 +29,18 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'home',
+    component: SideNavComponent,
+    children:[
+      { path: '', component: DashboardComponent },
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+      },
+      { path: 'profile', pathMatch: 'full', component: ProfileComponent },
+  ]
   },
 ];
 

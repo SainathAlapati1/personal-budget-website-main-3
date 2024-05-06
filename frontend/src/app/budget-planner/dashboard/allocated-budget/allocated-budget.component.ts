@@ -9,7 +9,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import moment from 'moment';
-import { AllocatedBudget } from '../../../config-budget/AllocatedBudget';
+import { AllocatedBudget } from './AllocatedBudget';
 import { DataService } from '../../../data.service';
 import { AuthenticationService } from '../../authentication.service';
 

@@ -11,10 +11,10 @@
 import { Observable, from } from 'rxjs';
 import { Injectable } from '@angular/core';
 import axios, { AxiosResponse } from 'axios';
-import { AllocatedBudget } from './config-budget/AllocatedBudget';
+import { AllocatedBudget } from './budget-planner/dashboard/allocated-budget/AllocatedBudget';
 import { Earnings } from './budget-planner/dashboard/earnings/Earnings';
 import { Expenditure } from './budget-planner/dashboard/expenditure/Expenditure';
-
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -25,6 +25,12 @@ export class DataService {
   // Earnings APIs
   private earningsUrl = 'http://localhost:3000/earnings';
 
+  private messageSource = new BehaviorSubject<boolean>(false); // Initial value is an empty string
+  currentMessage$ = this.messageSource.asObservable();
+
+  changeMessage(message: boolean) {
+    this.messageSource.next(message);
+  }
   insertEarningsData(userId: string, earnings: any): Observable<Earnings[]> {
     return from(
       axios

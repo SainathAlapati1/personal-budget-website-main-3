@@ -26,6 +26,6 @@ const routes: Routes = [
     MatInputModule,
   ],
   providers:[FormBuilder],
-  exports: [MatInputModule],
+  exports: [MatInputModule,LoginComponent],
 })
 export class LoginModule {}

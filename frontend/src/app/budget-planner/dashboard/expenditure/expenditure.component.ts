@@ -9,7 +9,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
 import moment from 'moment';
-import { AllocatedBudget } from '../../../config-budget/AllocatedBudget';
+import { AllocatedBudget } from '../allocated-budget/AllocatedBudget';
 import { DataService } from '../../../data.service';
 import { AuthenticationService } from '../../authentication.service';
 import { Expenditure } from './Expenditure';
@@ -128,16 +128,18 @@ export class ExpenditureComponent {
 
   onSubmit() {
     console.log('data is: ' + this.addForm.value);
-    this.dataService.insertExpenditureItem(this.loggedInUser, this.addForm.value).subscribe(
-      (response) => {
-        //this.getAllocatedBudgetItems();
-        console.log(' AllocatedBudget added successfully');
-        console.log('response is : ' + response);
-      },
-      (error) => {
-        console.log('Error: ' + error);
-      }
-    );
+    this.dataService
+      .insertExpenditureItem(this.loggedInUser, this.addForm.value)
+      .subscribe(
+        (response) => {
+          //this.getAllocatedBudgetItems();
+          console.log(' AllocatedBudget added successfully');
+          console.log('response is : ' + response);
+        },
+        (error) => {
+          console.log('Error: ' + error);
+        }
+      );
   }
   addItem() {
     // axios.post<any>('http://localhost:3000/allocatedbudget/items/addItem', this.newItem)
@@ -148,7 +150,14 @@ export class ExpenditureComponent {
     //   .catch(error => {
     //     console.error('Error adding item:', error);
     //   });
-    console.log('reached addItem() ' + this.newExpenditure + ' Form val: ' + this.addForm.value + ' this.items: ' + this.items);
+    console.log(
+      'reached addItem() ' +
+        this.newExpenditure +
+        ' Form val: ' +
+        this.addForm.value +
+        ' this.items: ' +
+        this.items
+    );
     this.dataService
       .insertExpenditureItem(this.loggedInUser, this.items)
       .subscribe(

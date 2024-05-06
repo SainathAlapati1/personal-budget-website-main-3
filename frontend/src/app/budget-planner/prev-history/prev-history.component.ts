@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Expenditure } from '../dashboard/expenditure/Expenditure';
-import { AllocatedBudget } from '../../config-budget/AllocatedBudget';
+import { AllocatedBudget } from '../dashboard/allocated-budget/AllocatedBudget';
 import { DataService } from '../../data.service';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';

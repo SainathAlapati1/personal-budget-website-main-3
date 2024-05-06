@@ -10,15 +10,15 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { LoginModule } from './budget-planner/login/login.module';
 import { RouterModule } from '@angular/router';
 import { provideMomentDateAdapter } from '@angular/material-moment-adapter';
-import { ConfigBudgetComponent } from './config-budget/config-budget.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginModule } from './login/login.module';
+
 
 @NgModule({
-  declarations: [AppComponent, ConfigBudgetComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
